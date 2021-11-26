@@ -14,13 +14,11 @@ func getEnv(key, fallback string) string {
 }
 
 func getRemoteAddress(request *http.Request) string {
-	xRealIp := request.Header.Get("X-Real-IP")
-	if len(xRealIp) > 0 {
+	if xRealIp := request.Header.Get("X-Real-IP"); 0 < len(xRealIp) {
 		return xRealIp
 	}
 
-	remoteAddr := request.RemoteAddr
-	return remoteAddr
+	return request.RemoteAddr
 }
 
 func main() {
