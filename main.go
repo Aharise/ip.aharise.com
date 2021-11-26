@@ -6,8 +6,6 @@ import (
 	"os"
 )
 
-import _ "github.com/joho/godotenv/autoload"
-
 func getEnv(key, fallback string) string {
 	if value, ok := os.LookupEnv(key); ok {
 		return value
