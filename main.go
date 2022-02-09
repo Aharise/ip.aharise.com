@@ -25,7 +25,7 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, request *http.Request) {
 		remoteAddress := getRemoteAddress(request)
 		log.Print(remoteAddress)
-		_, _ = w.Write([]byte(remoteAddress))
+		_, _ = w.Write([]byte("\n" + remoteAddress + "\n"))
 	})
 
 	port := getEnv("PORT", "21110")
